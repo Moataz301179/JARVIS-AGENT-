@@ -12,8 +12,16 @@ npm run build
 npm start
 ```
 
-Open `http://localhost:8080`. For a VPS, use `docker compose up -d --build`.
-Mount or retain the `jarvis-data` volume; it contains the evidence ledger.
+Open `http://localhost:8080`. For a VPS, run the direct systemd installer from
+the checked-out repository:
+
+```bash
+sudo ./deploy/install-systemd.sh
+```
+
+It creates a dedicated `jarvis` user, persistent state at `/var/lib/jarvis`, a
+protected operator token, and an auto-restarting system service. No container,
+database server, or process manager is required.
 
 ## Before production
 

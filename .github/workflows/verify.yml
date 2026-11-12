@@ -13,4 +13,4 @@ jobs:
           node-version: 22
       - run: npm run build
       - run: npm test
-      - run: docker build -t jarvis-control-plane .
+      - run: bash -n deploy/install-systemd.sh
