@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#07111f" />
+    <title>Jarvis — Operations Center</title>
+    <meta name="description" content="Evidence-first operations center for Jarvis." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <aside class="rail">
+        <a class="brand" href="#overview"><span class="brand-mark">J</span><span>jarvis<span class="muted">/ops</span></span></a>
+        <nav aria-label="Operations navigation">
+          <a class="active" href="#overview">Overview</a>
+          <a href="#evidence">Evidence ledger</a>
+          <a href="#tasks">Autonomy</a>
+          <a href="#notifications">Notifications</a>
+          <a href="#recovery">Recovery guide</a>
+        </nav>
+        <div class="rail-note"><span class="dot unknown"></span>Observation-only baseline<br /><small>No production actions are enabled.</small></div>
+      </aside>
+      <main>
+        <header>
+          <div><p class="eyebrow">JARVIS CONTROL PLANE</p><h1>Operations, with proof.</h1></div>
+          <div class="header-actions"><button class="ghost" data-scroll="evidence">View evidence</button><button class="primary" data-scroll="recovery">Start guided recovery</button></div>
+        </header>
+
+        <section id="overview" class="hero panel">
+          <div>
+            <p class="label">CURRENT OPERATING STATE</p>
+            <div class="state"><span class="pulse"></span><strong>Not yet verified</strong></div>
+            <p class="hero-copy">Jarvis has not supplied a trusted heartbeat, scheduler run, or delivered notification to this center. It must not be treated as active or 24/7.</p>
+          </div>
+          <div class="last-check"><span>LAST OBSERVATION</span><strong>12 Nov 2026 · setup baseline</strong><small>Source: Operations Center configuration</small></div>
+        </section>
+
+        <section class="metric-grid" aria-label="Status summary">
+          <article class="metric"><div class="metric-top"><span class="dot unknown"></span><span>Runtime health</span></div><strong>Unknown</strong><small>No authenticated service heartbeat received</small></article>
+          <article class="metric"><div class="metric-top"><span class="dot unknown"></span><span>Deployment</span></div><strong>Unknown</strong><small>No Jarvis deployment is connected</small></article>
+          <article class="metric"><div class="metric-top"><span class="dot failed"></span><span>Contact delivery</span></div><strong>Failed check</strong><small>No delivery receipt or reachable route on record</small></article>
+          <article class="metric"><div class="metric-top"><span class="dot unknown"></span><span>Scheduled tasks</span></div><strong>Unknown</strong><small>No scheduler or job history connected</small></article>
+        </section>
+
+        <section id="evidence" class="split section">
+          <div><p class="eyebrow">EVIDENCE LEDGER</p><h2>What we can honestly say</h2><p class="section-copy">Status changes only when a connected source provides a timestamped result. A badge is never a claim that Jarvis is working.</p></div>
+          <div class="ledger panel">
+            <div class="ledger-row heading"><span>Check</span><span>State</span><span>Evidence</span></div>
+            <div class="ledger-row"><span>Always-on worker</span><span class="status unknown-tag">Unknown</span><span>Integration not configured</span></div>
+            <div class="ledger-row"><span>Service uptime</span><span class="status unknown-tag">Unknown</span><span>No heartbeat data</span></div>
+            <div class="ledger-row"><span>Notification delivery</span><span class="status failed-tag">Failed check</span><span>No verified recipient/channel</span></div>
+            <div class="ledger-row"><span>Autonomous task loop</span><span class="status unknown-tag">Unknown</span><span>No completed-run record</span></div>
+          </div>
+        </section>
+
+        <section id="tasks" class="section two-col">
+          <article class="panel padded"><p class="eyebrow">AUTONOMOUS TASK HISTORY</p><h2>No trustworthy run history yet</h2><p class="section-copy">When connected, this ledger will retain task ID, trigger, started/finished time, outcome, linked recovery action, and a supporting log reference.</p><div class="empty"><span>◌</span> Awaiting first signed event</div></article>
+          <article class="panel padded"><p class="eyebrow">ALERT ROUTING</p><h2>Why Jarvis has not reached you</h2><ol class="reason-list"><li><span>01</span><div><strong>No verified notification channel</strong><small>There is no delivery receipt for push, email, SMS, or another chosen route.</small></div></li><li><span>02</span><div><strong>No active runtime proof</strong><small>A remote worker must send a recurring heartbeat to prove it survives when your Mac is off.</small></div></li><li><span>03</span><div><strong>No scheduler proof</strong><small>Scheduled tasks need a recent successful run and a retained execution record.</small></div></li></ol></article>
+        </section>
+
+        <section id="notifications" class="section notification panel padded"><div><p class="eyebrow">NOTIFICATION VERIFICATION</p><h2>Deliver a test before relying on alerts.</h2><p class="section-copy">Connect a notification provider, send a named test to your intended route, then require a delivery receipt and display it here. Do not enable escalation until that evidence exists.</p></div><button class="disabled" disabled>Notification test unavailable — setup required</button></section>
+
+        <section id="recovery" class="section recovery">
+          <div><p class="eyebrow">GUIDED RECOVERY</p><h2>Reconnect safely, one verified layer at a time.</h2><p class="section-copy">These are instructions and checkpoints. Restarting or changing any production system requires your explicit approval in the connected environment.</p></div>
+          <div class="steps">
+            <article class="step"><span>1</span><div><h3>Connect the remote runtime</h3><p>Authorize only the worker or service that should run independently of your Mac. Record its health endpoint and heartbeat interval.</p><button class="outline" data-modal="runtime">Connection checklist</button></div></article>
+            <article class="step"><span>2</span><div><h3>Verify the scheduler</h3><p>Register each task, its frequency, owner, timeout, and safe retry policy. Require at least one successful timestamped run.</p><button class="outline" data-modal="scheduler">Scheduler checklist</button></div></article>
+            <article class="step"><span>3</span><div><h3>Prove notification delivery</h3><p>Choose your contact route, send a test, and store the provider’s delivery confirmation—not just a “sent” response.</p><button class="outline" data-modal="notification">Delivery checklist</button></div></article>
+            <article class="step"><span>4</span><div><h3>Approve any corrective action</h3><p>Review the failure evidence, proposed scope, rollback plan, and service impact before a restart or configuration change is permitted.</p><button class="outline" data-modal="approval">Approval gate</button></div></article>
+          </div>
+        </section>
+        <footer><span>Jarvis Operations Center</span><span>Evidence-first · no unverified live claims · production changes require approval</span></footer>
+      </main>
+    </div>
+    <dialog id="modal"><div class="modal-head"><strong id="modal-title">Checklist</strong><button id="close-modal" aria-label="Close">×</button></div><div id="modal-body"></div></dialog>
+    <script src="./script.js"></script>
+  </body>
+</html>
